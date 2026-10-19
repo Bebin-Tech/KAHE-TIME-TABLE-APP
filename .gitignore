@@ -1,0 +1,11 @@
+.venv/
+.env
+__pycache__/
+*.py[cod]
+*.sqlite3
+node_modules/
+staticfiles/
+frontend/dist/
+*.log
+test-results.txt
+demo-seed-test-results.txt

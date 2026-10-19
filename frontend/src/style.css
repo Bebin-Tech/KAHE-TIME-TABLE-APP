@@ -1,0 +1,437 @@
+:root {
+  font-family:
+    Inter,
+    Segoe UI,
+    system-ui,
+    sans-serif;
+  color: #1c2942;
+  background: #f5f7fb;
+  font-synthesis: none;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.metrics h2 {
+  font-size: 28px;
+  margin: 12px 0;
+}
+.metrics p {
+  font-size: 13px;
+  color: #64718a;
+}
+.nav-heading {
+  font-size: 10px;
+  margin: 20px 12px 8px;
+}
+.request {
+  border-bottom: 1px solid #dfe5ef;
+  padding: 16px 0;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+aside {
+  width: 250px;
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid #e0e5ef;
+  padding: 32px 24px;
+}
+aside strong {
+  font-size: 28px;
+  color: #334ec9;
+}
+aside p {
+  font-size: 13px;
+  color: #64718a;
+  line-height: 1.6;
+}
+nav {
+  display: grid;
+  gap: 4px;
+  margin-top: 25px;
+}
+a {
+  color: #334ec9;
+}
+nav a {
+  padding: 12px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+nav a:hover {
+  background: #edf0ff;
+}
+main {
+  padding: 28px 40px;
+  flex: 1;
+  min-width: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #64718a;
+  border-bottom: 1px solid #dfe5f0;
+  padding-bottom: 24px;
+}
+h1 {
+  font-size: 28px;
+  margin-top: 24px;
+  text-transform: capitalize;
+}
+section {
+  background: white;
+  padding: 24px;
+  border: 1px solid #dfe5ef;
+  border-radius: 10px;
+}
+button {
+  border: 0;
+  border-radius: 6px;
+  background: #334ec9;
+  color: white;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+.secondary {
+  background: #edf0fa;
+  color: #273a80;
+}
+.nav {
+  background: transparent;
+  color: #53607a;
+  text-align: left;
+  padding: 10px 12px;
+  text-transform: capitalize;
+}
+.nav.selected,
+.nav:hover {
+  background: #edf0ff;
+  color: #334ec9;
+}
+.titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 28px 0;
+}
+.titlebar h1 {
+  margin: 8px 0;
+}
+small {
+  color: #64718a;
+  letter-spacing: 1px;
+}
+.table-scroll {
+  overflow: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+  margin-top: 20px;
+}
+th,
+td {
+  padding: 14px 10px;
+  text-align: left;
+  border-bottom: 1px solid #e4e8f0;
+  white-space: nowrap;
+}
+th {
+  color: #64718a;
+  background: #f8f9fc;
+}
+.error {
+  color: #a32929;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+input,
+select {
+  border: 1px solid #aebbd1;
+  border-radius: 6px;
+  padding: 10px;
+  font: inherit;
+  max-width: 100%;
+}
+label {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+input[type="checkbox"] {
+  justify-self: start;
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: #15213a80;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 20;
+}
+.modal {
+  width: min(600px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #b16b00;
+  outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .layout {
+    display: block;
+  }
+  aside {
+    width: 100%;
+    padding: 16px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  main {
+    padding: 20px;
+  }
+  header {
+    gap: 15px;
+  }
+}
+:root {
+  --accent: #334ec9;
+}
+.filters {
+  display: flex;
+  gap: 20px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+.filters label {
+  flex: 1;
+  min-width: 220px;
+}
+.filters button {
+  margin-bottom: 16px;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+.toolbar button {
+  font-size: 12px;
+  padding: 10px;
+}
+.toolbar a {
+  padding: 10px;
+  background: #edf0fa;
+  border-radius: 6px;
+}
+.badge {
+  display: inline-block;
+  background: #e9edff;
+  color: #334ec9;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+.editor-layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.palette {
+  width: 230px;
+  flex-shrink: 0;
+  padding: 16px;
+}
+.palette h3 {
+  margin-top: 0;
+}
+.drag-item {
+  border: 1px solid #cdd6ef;
+  background: #eef2ff;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 10px;
+  touch-action: none;
+  cursor: grab;
+  position: relative;
+}
+.drag-item small,
+.drag-item span {
+  display: block;
+  margin-top: 5px;
+}
+.dragging {
+  opacity: 0.7;
+  box-shadow: 0 4px 14px #233b7440;
+}
+.timetable {
+  flex: 1;
+  background: white;
+  border: 1px solid #dfe5ef;
+  border-radius: 10px;
+}
+.timetable table {
+  margin: 0;
+  table-layout: fixed;
+  min-width: 850px;
+}
+.timetable th {
+  width: 150px;
+}
+.timetable th small {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+}
+.timetable td {
+  white-space: normal;
+  vertical-align: top;
+  border-right: 1px solid #e4e8f0;
+  padding: 8px;
+  position: relative;
+  height: 120px;
+}
+.slot-add {
+  padding: 2px 12px;
+  opacity: 0.7;
+}
+.drop-target {
+  background: #dae5ff;
+  outline: 2px solid #334ec9;
+  outline-offset: -2px;
+}
+.class-card {
+  font-size: 12px;
+}
+.class-card .drag-item {
+  margin: 0 0 5px;
+  padding: 10px;
+}
+.card-actions {
+  display: flex;
+  gap: 4px;
+}
+.card-actions button {
+  font-size: 10px;
+  padding: 4px 6px;
+}
+.break-label {
+  color: #8791a8;
+}
+.issues {
+  margin: 20px 0;
+}
+.issues article {
+  padding: 12px 16px;
+  border: 1px solid #dce1eb;
+  background: #fff;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+.issues p {
+  margin: 6px 0;
+}
+.issues strong {
+  text-transform: capitalize;
+}
+@media (max-width: 1000px) {
+  .editor-layout {
+    display: block;
+  }
+  .palette {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .palette .drag-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+@media print {
+  aside,
+  header,
+  .no-print,
+  .toolbar,
+  .slot-add,
+  .card-actions,
+  .modal-backdrop {
+    display: none !important;
+  }
+  main {
+    padding: 0;
+  }
+  .layout {
+    display: block;
+  }
+  body,
+  :root {
+    background: white;
+  }
+  .timetable {
+    overflow: visible;
+    border: 0;
+  }
+  .timetable table {
+    min-width: 0;
+    width: 100%;
+    font-size: 9px;
+  }
+  .timetable th {
+    width: auto;
+  }
+  .timetable td {
+    height: auto;
+  }
+  .drag-item {
+    background: white !important;
+    border: 0;
+    padding: 2px !important;
+    box-shadow: none;
+  }
+  .table-scroll {
+    overflow: visible;
+  }
+  section {
+    border: 0;
+    padding: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+}
