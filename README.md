@@ -195,3 +195,11 @@ The default console backend prints password-reset links to the server terminal f
 ```
 
 Create and grant a dedicated backup user according to your DBA policy; `ctms_backup` is an example, not a seeded account. Keep backup files outside the served project, encrypt them, restrict file ACLs, rotate them, and test restoring into a separate database. Record recovery point/time targets before production use.
+
+Navigation checks (Node.js 24):
+
+```powershell
+npm test --prefix frontend
+```
+
+The workspace sidebar groups modules by purpose and filters them with **Find a module**. On mobile, use the menu button to open navigation; Escape closes it. Module URLs use fragments (for example `/#timetables`), so refreshing retains the selected module. Page and drawer animations respect the operating system's reduced-motion setting.

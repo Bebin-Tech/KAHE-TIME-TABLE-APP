@@ -103,3 +103,21 @@ The workspace was empty before implementation. Source groups created:
 - Final backend result: 32 tests OK, 1 MySQL-only skip; no pending model migrations. Django `check --deploy` passed with DEBUG false, a temporary random secret and SQLite; this is a settings check, not deployed infrastructure verification.
 - Final TypeScript/Vite build passed. Python and frontend sources were formatted with Black and Prettier. Pip 26.2.1 was installed inside `.venv` to complete the earlier bootstrap workaround.
 - Temporary runserver and stalled formatting processes created during this session were identified by this workspace's executable path and stopped. Restart using the documented commands after configuring the intended database.
+
+## Sidebar and navigation refinement — 23 October 2026
+
+Implemented grouped, searchable module navigation in `frontend/src/Sidebar.tsx` and `navigation.ts`, replacing the flat sidebar in `main.tsx`. All existing module identifiers still open their real database-backed screens. Admin, HOD, faculty, and student menus use an explicit role-specific registry; inaccessible hash destinations render an unavailable state. Existing backend authorization remains in force.
+
+Added desktop sidebar scrolling, expandable groups, icons, selected-page indicators, account controls, CSRF-protected POST logout, refreshable hash destinations and browser history support. Mobile navigation uses a sliding drawer with background inertness, scroll locking, focus management, Tab wrapping, Escape dismissal, and focus restoration. Unsaved timetable prompts remain in place. Added short page/modal/hover transitions and a reduced-motion override. Print views hide navigation.
+
+Files changed: `frontend/src/main.tsx`, `frontend/src/style.css`, `frontend/package.json`; added `frontend/src/Sidebar.tsx`, `frontend/src/navigation.ts`, `frontend/tests/navigation.test.mjs`.
+
+Commands actually executed and results:
+- `npm run build --prefix frontend`: TypeScript and Vite production build passed after formatting; initial sandbox dependency access error resolved by running the build with approved access.
+- `npm test --prefix frontend`: 5 navigation tests passed (all role menus, complete admin module coverage, identifiers/labels).
+- `$env:DJANGO_DEBUG='true'; $env:DB_ENGINE='sqlite'; .venv/Scripts/python.exe manage.py check`: no issues.
+- `.venv/Scripts/python.exe manage.py test --verbosity 0` with the same development environment: 35 tests run, OK, 1 MySQL-only test skipped.
+- Development Django server started on `http://127.0.0.1:8000/` using existing SQLite data for browser verification.
+- Browser checked at desktop 1280x800 and mobile 390x844: module search, collapse/search reopening, subject records, browser Back, drawer initial focus, Escape/focus restoration, POST sign-out, student menu restrictions, and unavailable admin destination for a student. No sample records were modified.
+
+Remaining: MySQL connectivity/concurrency acceptance and the broader deployment/UX limitations documented above remain unchanged. GitHub publication requested in the subsequent follow-up; these changes are included in the sidebar refinement commit.
